@@ -45,7 +45,7 @@ export default function StudyPage() {
   return (
     <div className="p-6">
 
-      <h1 className="text-xl font-bold mb-4">
+      <h1 className="text-xl font-bold mb-4 text-black">
         Study Session
       </h1>
 
@@ -101,4 +101,5 @@ export default function StudyPage() {
 
     </div>
   );
+
 }
