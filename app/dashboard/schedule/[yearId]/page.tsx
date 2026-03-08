@@ -108,7 +108,7 @@ export default function SchedulePage() {
         Academic Year {yearData.year_label}
       </h1>
 
-      <p className="mb-4 text-gray-600">
+      <p className="mb-4 text-black-600">
         Grade {yearData.grade_level} | Semester {yearData.semester}
       </p>
 
@@ -116,7 +116,7 @@ export default function SchedulePage() {
 
       <button
         onClick={() => setShowModal(true)}
-        className="bg-blue-500 text-white px-4 py-2 rounded mb-4"
+        className="bg-blue-500 text-black px-4 py-2 rounded mb-4"
       >
         + Add Subject
       </button>
@@ -130,7 +130,7 @@ export default function SchedulePage() {
           <div className="bg-white p-3 mb-2 rounded shadow cursor-pointer hover:bg-gray-100">
             <div className="font-semibold">{item.subject}</div>
 
-            <div className="text-sm text-gray-600">
+            <div className="text-sm text-black-600">
 
               {weekdays[item.weekday]} | {item.start_time} - {item.end_time}
 
@@ -188,7 +188,7 @@ export default function SchedulePage() {
               </button>
               <button
                 onClick={addSchedule}
-                className="bg-blue-500 text-white px-3 py-1 rounded"
+                className="bg-blue-500 text-black px-3 py-1 rounded"
               >
                 Save
               </button>
@@ -198,4 +198,5 @@ export default function SchedulePage() {
       )}
     </div>
   );
+
 }
