@@ -89,7 +89,7 @@ export default function SchedulePage() {
         Academic Year {yearData.year_label}
       </h1>
 
-      <p className="text-2xl font-bold mb-2 text-black">
+      <p className="text-2xl font-bold mb-2 text-gray-900">
         Grade {yearData.grade_level} | Semester {yearData.semester}
       </p>
 
@@ -180,6 +180,7 @@ export default function SchedulePage() {
     </div>
   );
 }
+
 
 
 
