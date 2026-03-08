@@ -91,7 +91,7 @@ export default function StudySessionPage() {
   return (
     <div className="p-6 max-w-xl">
 
-      <h1 className="text-2xl font-bold mb-4 text-black">
+      <h1 className="text-2xl font-bold mb-4">
         Subject: {subject}
       </h1>
 
@@ -102,11 +102,11 @@ export default function StudySessionPage() {
         Add Study Session
       </button>
 
-      <h2 className="text-lg font-semibold mb-2 text-black">
+      <h2 className="text-lg font-semibold mb-2">
         Today Study
       </h2>
 
-      <div className="bg-white rounded shadow p-4 mb-6 text-black">
+      <div className="bg-white rounded shadow p-4 mb-6">
         {sessions.map((s) => (
           <div
             key={s.id}
@@ -118,55 +118,55 @@ export default function StudySessionPage() {
         ))}
 
         {sessions.length === 0 && (
-          <div className="text-black-400 text-black">
+          <div className="text-gray-400">
             No study sessions yet
           </div>
         )}
       </div>
 
-      <h2 className="text-lg font-semibold text-black">
+      <h2 className="text-lg font-semibold">
         Total Study Time
       </h2>
 
-      <div className="text-xl font-bold text-black">
+      <div className="text-xl font-bold">
         {formatTotal()}
       </div>
 
       {showModal && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center text-black">
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center">
 
           <div className="bg-white p-6 rounded w-80">
 
-            <h2 className="text-lg font-bold mb-4 text-black">
+            <h2 className="text-lg font-bold mb-4">
               Add Study Session
             </h2>
 
-            <label className="text-sm text-black">Date</label>
+            <label className="text-sm">Date</label>
             <input
               type="date"
               value={studyDate}
               onChange={(e) => setStudyDate(e.target.value)}
-              className="border p-2 w-full mb-3 text-black"
+              className="border-3 border-blue-500 rounded p-2 w-full mb-1 text-blue-700 placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
 
-            <label className="text-sm text-black">Minutes</label>
+            <label className="text-sm">Minutes</label>
             <input
               type="number"
               placeholder="60"
               value={duration}
               onChange={(e) => setDuration(e.target.value)}
-              className="border p-2 w-full mb-3"
+              className="border-3 border-blue-500 rounded p-2 w-full mb-1 text-blue-700 placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
 
-            <label className="text-sm text-black">Note</label>
+            <label className="text-sm">Note</label>
             <textarea
               placeholder="Integration / Derivative"
               value={note}
               onChange={(e) => setNote(e.target.value)}
-              className="border p-2 w-full mb-4 text-black"
+               className="border-3 border-blue-500 rounded p-2 w-full mb-1 text-blue-700 placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
 
-            <div className="flex gap-2 justify-end text-black">
+            <div className="flex gap-2 justify-end">
               <button
                 onClick={() => setShowModal(false)}
                 className="px-3 py-1 border rounded"
@@ -189,6 +189,4 @@ export default function StudySessionPage() {
 
     </div>
   );
-
 }
-
