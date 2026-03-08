@@ -124,9 +124,9 @@ export default function SchedulePage() {
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40">
           <div className="bg-white p-6 rounded w-80">
-            <h2 className="text-lg font-bold mb-4">Add Subject</h2>
+            <h2 className="text-lg font-bold mb-4 text-black">Add Subject</h2>
 
-            <label className="block text-sm mb-1">Subject Name</label>
+            <label className="block text-sm mb-1 text-black">Subject Name</label>
             <input
               type="text"
               value={subjectName}
@@ -134,7 +134,7 @@ export default function SchedulePage() {
               className="border p-2 w-full mb-3"
             />
 
-            <label className="block text-sm mb-1">Day (1-7)</label>
+            <label className="block text-sm mb-1 text-black">Day (1-7)</label>
             <input
               type="number"
               min="1"
@@ -144,7 +144,7 @@ export default function SchedulePage() {
               className="border p-2 w-full mb-3"
             />
 
-            <label className="block text-sm mb-1">Start Time</label>
+            <label className="block text-sm mb-1 text-black">Start Time</label>
             <input
               type="time"
               value={startTime}
@@ -152,7 +152,7 @@ export default function SchedulePage() {
               className="border p-2 w-full mb-3"
             />
 
-            <label className="block text-sm mb-1">End Time</label>
+            <label className="block text-sm mb-1 text-black">End Time</label>
             <input
               type="time"
               value={endTime}
@@ -160,7 +160,7 @@ export default function SchedulePage() {
               className="border p-2 w-full mb-4"
             />
 
-            <div className="flex justify-end gap-2">
+            <div className="flex justify-end gap-2 text-black">
               <button
                 onClick={() => setShowModal(false)}
                 className="border px-3 py-1 rounded"
@@ -181,5 +181,6 @@ export default function SchedulePage() {
   );
 
 }
+
 
 
