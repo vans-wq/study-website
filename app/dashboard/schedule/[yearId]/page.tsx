@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -97,7 +96,7 @@ export default function SchedulePage() {
 
       <button
         onClick={() => setShowModal(true)}
-        className="bg-blue-500 text-black px-4 py-2 rounded mb-4"
+        className="bg-green-500 text-black px-4 py-2 rounded mb-4"
       >
         + Add Subject
       </button>
@@ -180,6 +179,7 @@ export default function SchedulePage() {
     </div>
   );
 }
+
 
 
 
