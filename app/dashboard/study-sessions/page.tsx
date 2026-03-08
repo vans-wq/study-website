@@ -14,35 +14,41 @@ export default function StudySessionsPage() {
   const [semester, setSemester] = useState("");
 
   const [loading, setLoading] = useState(false);
+  const [subjectInput, setSubjectInput] = useState("");
+  const [gradeInput, setGradeInput] = useState("");
+  const [semesterInput, setSemesterInput] = useState("");
 
-  useEffect(() => {
-    loadSessions();
-  }, [page, subject, grade, semester]);
+useEffect(() => {
+  loadSessions();
+}, [page, subject, grade, semester]);
 
   const loadSessions = async () => {
-
+console.log("subjectInput =", subjectInput);
+console.log("subject =", subject);
     setLoading(true);
 
     let query = supabase
       .from("study_sessions")
-      .select(`
-        id,
-        study_date,
-        duration_minutes,
-        note,
-        schedules (
-          subject,
-          academic_years (
-            grade_level,
-            semester
-          )
-        )
-      `, { count: "exact" })
+     .select(`
+  id,
+  study_date,
+  duration_minutes,
+  note,
+  schedules!inner (
+    subject,
+    academic_years!inner (
+      grade_level,
+      semester
+    )
+  )
+`)
       .order("study_date", { ascending: false })
       .range(page * limit, page * limit + limit - 1);
 
+
+
     if (subject) {
-      query = query.ilike("schedules.subject", `%${subject}%`);
+      query = query.ilike("schedules.subject", `%${subject.trim()}%`);
     }
 
     if (grade) {
@@ -52,42 +58,53 @@ export default function StudySessionsPage() {
     if (semester) {
       query = query.eq("schedules.academic_years.semester", semester);
     }
-    console.log("query", query)
+  
 
 
-const { data, error } = await query;
+    const { data, error } = await query;
+    console.log("data", data);
+    setLoading(false);
 
-setLoading(false);
+    if (error) {
+      console.log(error);
+      alert("เกิดข้อผิดพลาด");
+      return;
+    }
 
-if (error) {
-  console.log(error);
-  alert("เกิดข้อผิดพลาด");
-  return;
-}
+    const invalidData = data?.some((s: any) => {
+      const academicYear = s?.schedules?.academic_years;
 
-const invalidData = data?.some((s: any) => {
-  const academicYear = s?.schedules?.academic_years;
+      if (!academicYear) return true;
 
-  if (!academicYear) return true;
+      // ถ้าเป็น array
+      if (Array.isArray(academicYear)) {
+        return !academicYear[0]?.grade_level;
+      }
 
-  // ถ้าเป็น array
-  if (Array.isArray(academicYear)) {
-    return !academicYear[0]?.grade_level;
-  }
+      // ถ้าเป็น object
+      return !academicYear.grade_level;
+    });
+    if (invalidData) {
+      alert("ข้อมูล ไม่พบในระบบ");
+      window.location.reload();   // refresh หน้าเดิม
+      return;
+    }
 
-  // ถ้าเป็น object
-  return !academicYear.grade_level;
-});
-if (invalidData) {
-  alert("ข้อมูล ไม่พบในระบบ");
-  window.location.reload();   // refresh หน้าเดิม
-  return;
-}
-
-setSessions(data || []);
+    setSessions(data || []);
 
   };
 
+const handleSearch = (e: React.FormEvent) => {
+  e.preventDefault();
+
+  setSubject(subjectInput);
+  setGrade(gradeInput);
+  setSemester(semesterInput);
+
+  setPage(0);
+
+
+};
   return (
     <div className="p-6 max-w-3xl mx-auto">
 
@@ -97,28 +114,57 @@ setSessions(data || []);
 
       {/* Filters */}
 
-      <div className="grid grid-cols-3 gap-3 mb-6">
+      <div className="grid grid-cols-1 gap-3 mb-6">
+        <form
+          onSubmit={handleSearch}
+          className="grid grid-cols-4 gap-3 mb-6"
+        >
 
-        <input
-          placeholder="Search subject"
-          value={subject}
-          onChange={(e) => setSubject(e.target.value)}
-          className="border p-2"
-        />
+          <input
+            placeholder="Search subject"
+            value={subjectInput}
+            onChange={(e) => setSubjectInput(e.target.value)}
+            className="border p-2 w-full mb-1"
+          />
 
-        <input
-          placeholder="Grade"
-          value={grade}
-          onChange={(e) => setGrade(e.target.value)}
-          className="border p-2"
-        />
+          <input
+            placeholder="Grade"
+            value={gradeInput}
+            onChange={(e) => setGradeInput(e.target.value)}
+            className="border p-2 w-full mb-1"
+          />
 
-        <input
-          placeholder="Semester"
-          value={semester}
-          onChange={(e) => setSemester(e.target.value)}
-          className="border p-2"
-        />
+          <input
+            placeholder="Semester"
+            value={semesterInput}
+            onChange={(e) => setSemesterInput(e.target.value)}
+            className="border p-2 w-full mb-1"
+          />
+
+          <button
+            type="submit"
+            className="bg-blue-600 text-white px-4 py-2 rounded"
+          >
+            Search
+          </button>
+
+          <button
+            type="button"
+            onClick={() => {
+              setSubjectInput("");
+              setGradeInput("");
+              setSemesterInput("");
+              setSubject("");
+              setGrade("");
+              setSemester("");
+              setPage(0);
+              loadSessions();
+            }}
+            className="border px-4 py-2 rounded"
+          >
+            Reset
+          </button>
+        </form>
 
       </div>
 
