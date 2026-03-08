@@ -108,7 +108,7 @@ export default function SchedulePage() {
 
       {schedules.map((item) => (
         <Link key={item.id} href={`/dashboard/study/${item.id}`}>
-          <div className="bg-white p-3 mb-2 rounded shadow cursor-pointer hover:bg-gray-100 text-black">
+          <div className="bg-white text-black p-3 mb-2 rounded shadow cursor-pointer hover:bg-gray-100 ">
             <div className="font-semibold">{item.subject}</div>
 
             <div className="text-sm text-black">
@@ -180,6 +180,7 @@ export default function SchedulePage() {
     </div>
   );
 }
+
 
 
 
