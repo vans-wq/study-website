@@ -160,7 +160,7 @@ export default function SchedulePage() {
                className="border-3 border-blue-500 rounded p-2 w-full mb-1 text-blue-700 placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
 
-            <div className="flex justify-end gap-2">
+            <div className="flex justify-end gap-2 text-black">
               <button
                 onClick={() => setShowModal(false)}
                 className="border px-3 py-1 rounded text-black"
@@ -180,6 +180,7 @@ export default function SchedulePage() {
     </div>
   );
 }
+
 
 
 
