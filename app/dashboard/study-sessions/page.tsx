@@ -18,18 +18,18 @@ export default function StudySessionsPage() {
   const [gradeInput, setGradeInput] = useState("");
   const [semesterInput, setSemesterInput] = useState("");
 
-useEffect(() => {
-  loadSessions();
-}, [page, subject, grade, semester]);
+  useEffect(() => {
+    loadSessions();
+  }, [page, subject, grade, semester]);
 
   const loadSessions = async () => {
-console.log("subjectInput =", subjectInput);
-console.log("subject =", subject);
+    console.log("subjectInput =", subjectInput);
+    console.log("subject =", subject);
     setLoading(true);
 
     let query = supabase
       .from("study_sessions")
-     .select(`
+      .select(`
   id,
   study_date,
   duration_minutes,
@@ -58,7 +58,7 @@ console.log("subject =", subject);
     if (semester) {
       query = query.eq("schedules.academic_years.semester", semester);
     }
-  
+
 
 
     const { data, error } = await query;
@@ -94,21 +94,21 @@ console.log("subject =", subject);
 
   };
 
-const handleSearch = (e: React.FormEvent) => {
-  e.preventDefault();
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
 
-  setSubject(subjectInput);
-  setGrade(gradeInput);
-  setSemester(semesterInput);
+    setSubject(subjectInput);
+    setGrade(gradeInput);
+    setSemester(semesterInput);
 
-  setPage(0);
+    setPage(0);
 
 
-};
+  };
   return (
     <div className="p-6 max-w-3xl mx-auto">
 
-      <h1 className="text-2xl font-bold mb-6 text-blue-600">
+      <h1 className="text-2xl font-bold mb-6">
         Study Sessions
       </h1>
 
@@ -124,21 +124,21 @@ const handleSearch = (e: React.FormEvent) => {
             placeholder="Subject"
             value={subjectInput}
             onChange={(e) => setSubjectInput(e.target.value)}
-            className="border-4 border-blue-500 p-2 w-full mb-1 placeholder-blue-400"
+            className="border-3 border-blue-500 rounded p-2 w-full mb-1 text-blue-700 placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
           />
 
           <input
             placeholder="Grade"
             value={gradeInput}
             onChange={(e) => setGradeInput(e.target.value)}
-            className="border-4 border-blue-500 p-2 w-full mb-1 placeholder-blue-400"
+            className="border-3 border-blue-500 rounded p-2 w-full mb-1 text-blue-700 placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
           />
 
           <input
             placeholder="Semester"
             value={semesterInput}
             onChange={(e) => setSemesterInput(e.target.value)}
-            className="border-4 border-blue-500 p-2 w-full mb-1 placeholder-blue-400"
+            className="border-3 border-blue-500 rounded p-2 w-full mb-1 text-blue-700 placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
           />
 
           <button
@@ -160,7 +160,7 @@ const handleSearch = (e: React.FormEvent) => {
               setPage(0);
               loadSessions();
             }}
-            className="border-4 border-blue-500 px-4 py-2 rounded text-blue-600"
+            className="border-4 border-gray-500 px-4 py-2 rounded text-gray-600"
           >
             Reset
           </button>
@@ -170,7 +170,7 @@ const handleSearch = (e: React.FormEvent) => {
 
       {/* List */}
 
-      <div className="border rounded bg-black">
+      <div className="border-2 rounded bg-gray">
 
         {sessions.map((s) => (
           <div key={s.id} className="border-b p-3 text-sm">
@@ -189,7 +189,7 @@ const handleSearch = (e: React.FormEvent) => {
               {s.duration_minutes} min
             </div>
 
-            <div className="text-blue-600">
+            <div className="text-black">
               {s.note}
             </div>
 
@@ -228,9 +228,3 @@ const handleSearch = (e: React.FormEvent) => {
     </div>
   );
 }
-
-
-
-
-
-
