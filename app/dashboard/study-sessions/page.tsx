@@ -160,7 +160,7 @@ const handleSearch = (e: React.FormEvent) => {
               setPage(0);
               loadSessions();
             }}
-            className="border-4 border-blue-500 px-4 py-2 rounded"
+            className="border-4 border-blue-500 px-4 py-2 rounded text-blue-600"
           >
             Reset
           </button>
@@ -211,14 +211,14 @@ const handleSearch = (e: React.FormEvent) => {
         <button
           onClick={() => setPage(page - 1)}
           disabled={page === 0}
-          className="border px-3 py-1 rounded"
+          className="border-4 border-blue-500 px-4 py-2 rounded text-blue-600"
         >
           Prev
         </button>
 
         <button
           onClick={() => setPage(page + 1)}
-          className="border px-3 py-1 rounded"
+          className="border-4 border-blue-500 px-4 py-2 rounded text-blue-600"
         >
           Next
         </button>
@@ -228,6 +228,7 @@ const handleSearch = (e: React.FormEvent) => {
     </div>
   );
 }
+
 
 
 
