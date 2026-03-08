@@ -175,7 +175,7 @@ const handleSearch = (e: React.FormEvent) => {
         {sessions.map((s) => (
           <div key={s.id} className="border-b p-3 text-sm">
 
-            <div className="text-black-500 font-semibold">
+            <div className="text-blue-500 font-semibold">
               {s.schedules.subject}
             </div>
 
@@ -189,7 +189,7 @@ const handleSearch = (e: React.FormEvent) => {
               {s.duration_minutes} min
             </div>
 
-            <div className="text-black-600">
+            <div className="text-blue-600">
               {s.note}
             </div>
 
@@ -197,7 +197,7 @@ const handleSearch = (e: React.FormEvent) => {
         ))}
 
         {sessions.length === 0 && !loading && (
-          <div className="p-4 text-black-400">
+          <div className="p-4 text-blue-400">
             No results
           </div>
         )}
@@ -228,3 +228,4 @@ const handleSearch = (e: React.FormEvent) => {
     </div>
   );
 }
+
