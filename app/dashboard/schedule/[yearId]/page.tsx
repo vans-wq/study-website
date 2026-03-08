@@ -103,7 +103,7 @@ export default function SchedulePage() {
       </button>
 
       {schedules.length === 0 && (
-        <p className="text-black-500">No subjects yet.</p>
+        <p className="text-black">No subjects yet.</p>
       )}
 
       {schedules.map((item) => (
@@ -180,6 +180,7 @@ export default function SchedulePage() {
     </div>
   );
 }
+
 
 
 
