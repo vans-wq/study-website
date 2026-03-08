@@ -89,11 +89,11 @@ export default function SchedulePage() {
         Academic Year {yearData.year_label}
       </h1>
 
-      <p className="mb-4 text-black-600">
+      <p className="mb-4 text-black-600 text-black">
         Grade {yearData.grade_level} | Semester {yearData.semester}
       </p>
 
-      <h2 className="text-xl font-bold mb-3">Subjects</h2>
+      <h2 className="text-xl font-bold mb-3 text-black">Subjects</h2>
 
       <button
         onClick={() => setShowModal(true)}
@@ -108,7 +108,7 @@ export default function SchedulePage() {
 
       {schedules.map((item) => (
         <Link key={item.id} href={`/dashboard/study/${item.id}`}>
-          <div className="bg-white p-3 mb-2 rounded shadow cursor-pointer hover:bg-gray-100">
+          <div className="bg-white p-3 mb-2 rounded shadow cursor-pointer hover:bg-gray-100 text-black">
             <div className="font-semibold">{item.subject}</div>
 
             <div className="text-sm text-black-600">
@@ -181,4 +181,5 @@ export default function SchedulePage() {
   );
 
 }
+
 
