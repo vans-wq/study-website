@@ -97,7 +97,7 @@ export default function StudySessionPage() {
 
       <button
         onClick={() => setShowModal(true)}
-        className="bg-blue-500 text-white px-4 py-2 rounded mb-6"
+        className="bg-blue-500 text-black px-4 py-2 rounded mb-6"
       >
         Add Study Session
       </button>
@@ -118,7 +118,7 @@ export default function StudySessionPage() {
         ))}
 
         {sessions.length === 0 && (
-          <div className="text-gray-400">
+          <div className="text-black-400">
             No study sessions yet
           </div>
         )}
@@ -176,7 +176,7 @@ export default function StudySessionPage() {
 
               <button
                 onClick={handleSave}
-                className="bg-blue-500 text-white px-3 py-1 rounded"
+                className="bg-blue-500 text-black px-3 py-1 rounded"
               >
                 Save
               </button>
@@ -189,4 +189,5 @@ export default function StudySessionPage() {
 
     </div>
   );
+
 }
