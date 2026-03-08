@@ -170,21 +170,21 @@ const handleSearch = (e: React.FormEvent) => {
 
       {/* List */}
 
-      <div className="border rounded bg-white">
+      <div className="border rounded bg-gray">
 
         {sessions.map((s) => (
           <div key={s.id} className="border-b p-3 text-sm">
 
-            <div className="font-semibold">
+            <div className="text-black-500 font-semibold">
               {s.schedules.subject}
             </div>
 
-            <div className="text-black-500">
+            <div className="text-blue-500">
               Grade {s.schedules.academic_years.grade_level} |
               Semester {s.schedules.academic_years.semester}
             </div>
 
-            <div>
+            <div className="text-black-500">
               {new Date(s.study_date).toLocaleDateString()} |{" "}
               {s.duration_minutes} min
             </div>
@@ -228,6 +228,3 @@ const handleSearch = (e: React.FormEvent) => {
     </div>
   );
 }
-
-
-
