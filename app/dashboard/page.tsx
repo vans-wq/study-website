@@ -61,7 +61,7 @@ export default function DashboardPage() {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Academic Years</h1>
+      <h1 className="text-2xl font-bold mb-4 text-blue-600">Academic Years</h1>
 
       <button
         onClick={() => setShowModal(true)}
@@ -133,4 +133,5 @@ onClick={() => router.push(`/dashboard/schedule/${year.id}`)}
   );
 
 }
+
 
