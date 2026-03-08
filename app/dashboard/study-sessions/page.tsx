@@ -108,7 +108,7 @@ const handleSearch = (e: React.FormEvent) => {
   return (
     <div className="p-6 max-w-3xl mx-auto">
 
-      <h1 className="text-2xl font-bold mb-6">
+      <h1 className="text-2xl font-bold mb-6 text-blue-600">
         Study Sessions
       </h1>
 
@@ -228,6 +228,7 @@ const handleSearch = (e: React.FormEvent) => {
     </div>
   );
 }
+
 
 
 
