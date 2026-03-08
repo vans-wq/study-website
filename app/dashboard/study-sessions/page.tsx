@@ -170,7 +170,7 @@ const handleSearch = (e: React.FormEvent) => {
 
       {/* List */}
 
-      <div className="border rounded bg-gray">
+      <div className="border rounded bg-black">
 
         {sessions.map((s) => (
           <div key={s.id} className="border-b p-3 text-sm">
@@ -228,4 +228,5 @@ const handleSearch = (e: React.FormEvent) => {
     </div>
   );
 }
+
 
