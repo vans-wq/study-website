@@ -163,7 +163,7 @@ export default function SchedulePage() {
             <div className="flex justify-end gap-2">
               <button
                 onClick={() => setShowModal(false)}
-                className="border px-3 py-1 rounded"
+                className="border px-3 py-1 rounded text-black"
               >
                 Cancel
               </button>
@@ -180,4 +180,5 @@ export default function SchedulePage() {
     </div>
   );
 }
+
 
