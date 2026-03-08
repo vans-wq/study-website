@@ -91,7 +91,7 @@ export default function StudySessionPage() {
   return (
     <div className="p-6 max-w-xl">
 
-      <h1 className="text-2xl font-bold mb-4">
+      <h1 className="text-2xl font-bold mb-4 text-black">
         Subject: {subject}
       </h1>
 
@@ -102,7 +102,7 @@ export default function StudySessionPage() {
         Add Study Session
       </button>
 
-      <h2 className="text-lg font-semibold mb-2">
+      <h2 className="text-lg font-semibold mb-2 text-black">
         Today Study
       </h2>
 
@@ -124,7 +124,7 @@ export default function StudySessionPage() {
         )}
       </div>
 
-      <h2 className="text-lg font-semibold">
+      <h2 className="text-lg font-semibold text-black">
         Total Study Time
       </h2>
 
@@ -137,11 +137,11 @@ export default function StudySessionPage() {
 
           <div className="bg-white p-6 rounded w-80">
 
-            <h2 className="text-lg font-bold mb-4">
+            <h2 className="text-lg font-bold mb-4 text-black">
               Add Study Session
             </h2>
 
-            <label className="text-sm">Date</label>
+            <label className="text-sm text-black">Date</label>
             <input
               type="date"
               value={studyDate}
@@ -149,7 +149,7 @@ export default function StudySessionPage() {
               className="border-3 border-blue-500 rounded p-2 w-full mb-1 text-blue-700 placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
 
-            <label className="text-sm">Minutes</label>
+            <label className="text-sm text-black">Minutes</label>
             <input
               type="number"
               placeholder="60"
@@ -158,7 +158,7 @@ export default function StudySessionPage() {
               className="border-3 border-blue-500 rounded p-2 w-full mb-1 text-blue-700 placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
 
-            <label className="text-sm">Note</label>
+            <label className="text-sm text-black">Note</label>
             <textarea
               placeholder="Integration / Derivative"
               value={note}
