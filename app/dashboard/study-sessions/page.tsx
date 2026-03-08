@@ -124,21 +124,21 @@ const handleSearch = (e: React.FormEvent) => {
             placeholder="Subject"
             value={subjectInput}
             onChange={(e) => setSubjectInput(e.target.value)}
-            className="border p-2 w-full mb-1 placeholder-blue-400"
+            className="border-4 border-blue-500 p-2 w-full mb-1 placeholder-blue-400"
           />
 
           <input
             placeholder="Grade"
             value={gradeInput}
             onChange={(e) => setGradeInput(e.target.value)}
-            className="border p-2 w-full mb-1 placeholder-blue-400"
+            className="border-4 border-blue-500 p-2 w-full mb-1 placeholder-blue-400"
           />
 
           <input
             placeholder="Semester"
             value={semesterInput}
             onChange={(e) => setSemesterInput(e.target.value)}
-            className="border p-2 w-full mb-1 placeholder-blue-400"
+            className="border-4 border-blue-500 p-2 w-full mb-1 placeholder-blue-400"
           />
 
           <button
@@ -228,5 +228,6 @@ const handleSearch = (e: React.FormEvent) => {
     </div>
   );
 }
+
 
 
