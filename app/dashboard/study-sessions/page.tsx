@@ -160,7 +160,7 @@ const handleSearch = (e: React.FormEvent) => {
               setPage(0);
               loadSessions();
             }}
-            className="border px-4 py-2 rounded"
+            className="border-4 border-blue-500 px-4 py-2 rounded"
           >
             Reset
           </button>
@@ -228,6 +228,7 @@ const handleSearch = (e: React.FormEvent) => {
     </div>
   );
 }
+
 
 
 
