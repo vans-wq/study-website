@@ -169,7 +169,7 @@ export default function StudySessionPage() {
             <div className="flex gap-2 justify-end">
               <button
                 onClick={() => setShowModal(false)}
-                className="px-3 py-1 border rounded"
+                className="px-3 py-1 border rounded text-black"
               >
                 Cancel
               </button>
@@ -190,3 +190,4 @@ export default function StudySessionPage() {
     </div>
   );
 }
+
