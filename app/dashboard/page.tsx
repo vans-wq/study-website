@@ -75,7 +75,7 @@ export default function DashboardPage() {
   <div
     key={year.id}
 onClick={() => router.push(`/dashboard/schedule/${year.id}`)}
-    className="p-3 bg-white text-blue mb-2 rounded shadow cursor-pointer hover:bg-gray-100"
+    className="p-3 bg-white mb-2 rounded shadow cursor-pointer hover:bg-gray-100 text-blue-600"
   >
           {year.year_label} - Grade {year.grade_level}- Semester {year.semester}
   </div>
@@ -133,3 +133,4 @@ onClick={() => router.push(`/dashboard/schedule/${year.id}`)}
   );
 
 }
+
