@@ -124,9 +124,9 @@ export default function SchedulePage() {
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40">
           <div className="bg-white p-6 rounded w-80">
-            <h2 className="text-lg font-bold mb-4">Add Subject</h2>
+            <h2 className="text-lg font-bold mb-4 text-black">Add Subject</h2>
 
-            <label className="block text-sm mb-1">Subject Name</label>
+            <label className="block text-sm mb-1 text-black">Subject Name</label>
             <input
               type="text"
               value={subjectName}
@@ -134,7 +134,7 @@ export default function SchedulePage() {
                className="border-3 border-blue-500 rounded p-2 w-full mb-1 text-blue-700 placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
 
-            <label className="block text-sm mb-1">Day (1-7)</label>
+            <label className="block text-sm mb-1 text-black">Day (1-7)</label>
             <input
               type="number"
               min="1"
@@ -144,7 +144,7 @@ export default function SchedulePage() {
                className="border-3 border-blue-500 rounded p-2 w-full mb-1 text-blue-700 placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
 
-            <label className="block text-sm mb-1">Start Time</label>
+            <label className="block text-sm mb-1 text-black">Start Time</label>
             <input
               type="time"
               value={startTime}
@@ -180,3 +180,4 @@ export default function SchedulePage() {
     </div>
   );
 }
+
