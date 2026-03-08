@@ -75,7 +75,7 @@ export default function DashboardPage() {
   <div
     key={year.id}
 onClick={() => router.push(`/dashboard/schedule/${year.id}`)}
-    className="p-3 bg-white mb-2 rounded shadow cursor-pointer hover:bg-gray-100 text-blue-600"
+    className="p-3 bg-white  mb-2 rounded shadow cursor-pointer hover:bg-gray-100 text-blue-600"
   >
           {year.year_label} - Grade {year.grade_level}- Semester {year.semester}
   </div>
@@ -85,14 +85,14 @@ onClick={() => router.push(`/dashboard/schedule/${year.id}`)}
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40">
           <div className="bg-white p-6 rounded w-80">
-            <h2 className="text-lg font-bold mb-4">Add Academic Year</h2>
+            <h2 className="text-lg font-bold mb-4 text-black">Add Academic Year</h2>
 
             <input
               type="text"
               placeholder="Year (e.g. 2568)"
               value={yearLabel}
               onChange={(e) => setYearLabel(e.target.value)}
-              className="border p-2 w-full mb-3"
+               className="border-3 border-blue-500 rounded p-2 w-full mb-1 text-blue-700 placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
 
       <h2 className="text-lg font-bold mb-4"> Grade Level</h2>
@@ -101,21 +101,21 @@ onClick={() => router.push(`/dashboard/schedule/${year.id}`)}
               placeholder="Grade Level"
               value={gradeLevel}
               onChange={(e) => setGradeLevel(Number(e.target.value))}
-              className="border p-2 w-full mb-3"
+             className="border-3 border-blue-500 rounded p-2 w-full mb-1 text-blue-700 placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
-     <h2 className="text-lg font-bold mb-4"> Semester</h2>
+     <h2 className="text-lg font-bold mb-4 text-black"> Semester</h2>
             <input
               type="number"
               placeholder="Semester"
               value={semester}
               onChange={(e) => setSemester(Number(e.target.value))}
-              className="border p-2 w-full mb-4"
+              className="border-3 border-blue-500 rounded p-2 w-full mb-1 text-blue-700 placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
 
-            <div className="flex justify-end gap-2">
+            <div className="flex justify-end gap-2 text-black">
               <button
                 onClick={() => setShowModal(false)}
-                className="px-3 py-1 border rounded"
+                className="px-3 py-1 border rounded text-black"
               >
                 Cancel
               </button>
@@ -131,7 +131,4 @@ onClick={() => router.push(`/dashboard/schedule/${year.id}`)}
       )}
     </div>
   );
-
 }
-
-
