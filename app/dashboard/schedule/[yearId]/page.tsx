@@ -1,22 +1,3 @@
-// "use client";
-
-// import { useParams } from "next/navigation";
-
-
-
-// export default function SchedulePage() {
-
-//   const params = useParams();
-//   const yearId = params.yearId;
-
-//   return (
-//     <div className="p-6">
-//       <h1 className="text-2xl font-bold">
-//         Schedule for Year ID: {yearId}
-//       </h1>
-//     </div>
-//   );
-// }
 
 "use client";
 
@@ -104,7 +85,7 @@ export default function SchedulePage() {
   return (
 
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-2">
+      <h1 className="text-2xl font-bold mb-2 text-black">
         Academic Year {yearData.year_label}
       </h1>
 
@@ -200,3 +181,4 @@ export default function SchedulePage() {
   );
 
 }
+
