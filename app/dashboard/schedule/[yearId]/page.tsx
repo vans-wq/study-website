@@ -97,7 +97,7 @@ export default function SchedulePage() {
 
       <button
         onClick={() => setShowModal(true)}
-        className="bg-blue-500 text-white px-4 py-2 rounded mb-4"
+        className="bg-blue-500 text-black px-4 py-2 rounded mb-4"
       >
         + Add Subject
       </button>
@@ -180,6 +180,7 @@ export default function SchedulePage() {
     </div>
   );
 }
+
 
 
 
