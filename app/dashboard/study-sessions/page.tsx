@@ -184,7 +184,7 @@ const handleSearch = (e: React.FormEvent) => {
               Semester {s.schedules.academic_years.semester}
             </div>
 
-            <div className="text-black-500">
+            <div className="text-blue-500">
               {new Date(s.study_date).toLocaleDateString()} |{" "}
               {s.duration_minutes} min
             </div>
@@ -228,5 +228,6 @@ const handleSearch = (e: React.FormEvent) => {
     </div>
   );
 }
+
 
 
