@@ -143,7 +143,7 @@ const handleSearch = (e: React.FormEvent) => {
 
           <button
             type="submit"
-            className="bg-blue-600 text-white px-4 py-2 rounded"
+            className="bg-blue-600 text-black px-4 py-2 rounded"
           >
             Search
           </button>
@@ -179,7 +179,7 @@ const handleSearch = (e: React.FormEvent) => {
               {s.schedules.subject}
             </div>
 
-            <div className="text-gray-500">
+            <div className="text-black-500">
               Grade {s.schedules.academic_years.grade_level} |
               Semester {s.schedules.academic_years.semester}
             </div>
@@ -189,7 +189,7 @@ const handleSearch = (e: React.FormEvent) => {
               {s.duration_minutes} min
             </div>
 
-            <div className="text-gray-600">
+            <div className="text-black-600">
               {s.note}
             </div>
 
@@ -197,7 +197,7 @@ const handleSearch = (e: React.FormEvent) => {
         ))}
 
         {sessions.length === 0 && !loading && (
-          <div className="p-4 text-gray-400">
+          <div className="p-4 text-black-400">
             No results
           </div>
         )}
@@ -228,3 +228,4 @@ const handleSearch = (e: React.FormEvent) => {
     </div>
   );
 }
+
