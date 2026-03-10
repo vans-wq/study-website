@@ -75,7 +75,7 @@ export default function StudyPage() {
             type="date"
             value={studyDate}
             onChange={(e) => setStudyDate(e.target.value)}
-            className="border-3 border-blue-500 rounded p-2 w-full mb-1 text-blue-700 placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            className="border-3 border-blue-500 rounded p-4 w-full mb-1 text-blue-700 placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
           />
 
           <input
@@ -124,3 +124,4 @@ export default function StudyPage() {
     </div>
   );
 }
+
