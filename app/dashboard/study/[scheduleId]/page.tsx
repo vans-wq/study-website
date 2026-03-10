@@ -20,6 +20,7 @@ export default function StudyPage() {
     const image = sigRef.current
       ?.getTrimmedCanvas()
       .toDataURL("image/png");
+      console.log("image =", image);
     const {
       data: { user },
     } = await supabase.auth.getUser();
@@ -124,4 +125,3 @@ export default function StudyPage() {
     </div>
   );
 }
-
