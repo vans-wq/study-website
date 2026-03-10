@@ -84,7 +84,7 @@ export default function SchedulePage() {
   return (
 
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-2 text-black">
+      <h1 className="text-2xl font-bold mb-2 text-blue-700">
         Academic Year {yearData.year_label}
       </h1>
 
@@ -179,6 +179,7 @@ export default function SchedulePage() {
     </div>
   );
 }
+
 
 
 
