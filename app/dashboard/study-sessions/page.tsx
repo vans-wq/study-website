@@ -17,6 +17,7 @@ export default function StudySessionsPage() {
   const [subjectInput, setSubjectInput] = useState("");
   const [gradeInput, setGradeInput] = useState("");
   const [semesterInput, setSemesterInput] = useState("");
+  const [preview, setPreview] = useState<string | null>(null);
 
   useEffect(() => {
     loadSessions();
@@ -30,18 +31,19 @@ export default function StudySessionsPage() {
     let query = supabase
       .from("study_sessions")
       .select(`
-  id,
-  study_date,
-  duration_minutes,
-  note,
-  schedules!inner (
-    subject,
-    academic_years!inner (
-      grade_level,
-      semester
+    id,
+    study_date,
+    duration_minutes,
+    note,
+    note_image,
+    schedules (
+      subject,
+      academic_years (
+        grade_level,
+        semester
+      )
     )
-  )
-`)
+  `)
       .order("study_date", { ascending: false })
       .range(page * limit, page * limit + limit - 1);
 
@@ -172,37 +174,60 @@ export default function StudySessionsPage() {
 
       <div className="border-2 rounded bg-gray">
 
-        {sessions.map((s) => (
-          <div key={s.id} className="border-b p-3 text-sm">
+  {sessions.map((s) => {
+    console.log("note_image =", s.note_image);
+console.log("session =", s);
+    return (
+      <div key={s.id} className="border-b p-3 text-sm">
 
-            <div className="text-blue-500 font-semibold">
-              {s.schedules.subject}
-            </div>
+        <div className="text-blue-500 font-semibold">
+          {s.schedules.subject}
+        </div>
 
-            <div className="text-blue-500">
-              Grade {s.schedules.academic_years.grade_level} |
-              Semester {s.schedules.academic_years.semester}
-            </div>
+        <div className="text-blue-500">
+          Grade {s.schedules.academic_years.grade_level} |
+          Semester {s.schedules.academic_years.semester}
+        </div>
 
-            <div className="text-blue-500">
-              {new Date(s.study_date).toLocaleDateString()} |{" "}
-              {s.duration_minutes} min
-            </div>
+        <div className="text-blue-500">
+          {new Date(s.study_date).toLocaleDateString()} | {s.duration_minutes} min
+        </div>
 
-            <div className="text-black">
-              {s.note}
-            </div>
+        <div className="text-black">
+          {s.note}
+        </div>
 
-          </div>
-        ))}
-
-        {sessions.length === 0 && !loading && (
-          <div className="p-4 text-blue-400">
-            No results
-          </div>
+        {s.note_image && (
+          <img
+            src={s.note_image}
+            className="w-40 border rounded cursor-pointer"
+            onClick={() => setPreview(s.note_image)}
+          />
         )}
 
       </div>
+    );
+  })}
+
+  {preview && (
+    <div
+      className="fixed inset-0 bg-black/70 flex items-center justify-center"
+      onClick={() => setPreview(null)}
+    >
+      <img
+        src={preview}
+        className="max-w-[90%] max-h-[90%] rounded"
+      />
+    </div>
+  )}
+
+  {sessions.length === 0 && !loading && (
+    <div className="p-4 text-blue-400">
+      No results
+    </div>
+  )}
+
+</div>
 
       {/* Pagination */}
 
@@ -226,6 +251,6 @@ export default function StudySessionsPage() {
       </div>
 
     </div>
+
   );
 }
-
