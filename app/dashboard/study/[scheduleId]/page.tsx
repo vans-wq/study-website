@@ -1,12 +1,13 @@
 "use client";
-
+import SignatureCanvas from "react-signature-canvas";
 import { useParams } from "next/navigation";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { supabase } from "@/lib/supabase";
 
 
 export default function StudyPage() {
   const params = useParams();
+  const sigRef = useRef<any>(null);
   const scheduleId = params.scheduleId;
 
   const [showForm, setShowForm] = useState(false);
@@ -16,7 +17,9 @@ export default function StudyPage() {
   const [note, setNote] = useState("");
 
   const handleSave = async () => {
-
+    const image = sigRef.current
+      ?.getTrimmedCanvas()
+      .toDataURL("image/png");
     const {
       data: { user },
     } = await supabase.auth.getUser();
@@ -30,6 +33,7 @@ export default function StudyPage() {
           study_date: studyDate,
           duration_minutes: duration,
           note: note,
+          note_image: image
         },
       ]);
 
@@ -71,7 +75,7 @@ export default function StudyPage() {
             type="date"
             value={studyDate}
             onChange={(e) => setStudyDate(e.target.value)}
-             className="border-3 border-blue-500 rounded p-2 w-full mb-1 text-blue-700 placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            className="border-3 border-blue-500 rounded p-2 w-full mb-1 text-blue-700 placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
           />
 
           <input
@@ -86,9 +90,27 @@ export default function StudyPage() {
             placeholder="What did you study?"
             value={note}
             onChange={(e) => setNote(e.target.value)}
-             className="border-3 border-blue-500 rounded p-2 w-full mb-1 text-blue-700 placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            className="border-3 border-blue-500 rounded p-2 w-full mb-1 text-blue-700 placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
           />
+          <div className="mb-3">
+            <label className="text-sm text-black">Handwritten Note</label>
 
+            <div className="border rounded bg-white">
+              <SignatureCanvas
+                ref={sigRef}
+                canvasProps={{
+                  className: "w-full h-40",
+                }}
+              />
+            </div>
+
+            <button
+              onClick={() => sigRef.current.clear()}
+              className="text-sm text-red-500 mt-1"
+            >
+              Clear
+            </button>
+          </div>
           <button
             onClick={handleSave}
             className="bg-green-500 text-black px-3 py-1 rounded"
